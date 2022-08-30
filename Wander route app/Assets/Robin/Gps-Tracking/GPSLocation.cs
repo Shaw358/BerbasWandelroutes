@@ -2,70 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Android;
 using TMPro;
 
 public class GPSLocation : MonoBehaviour
 {
-
-    public TextMeshProUGUI GPSStatus;
-    public TextMeshProUGUI latitudeValue;
-    public TextMeshProUGUI longitudeValue;
-    public TextMeshProUGUI TimeStampValue;
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI GPSOut;
+    public bool isUpdating;
+    private void Update()
     {
-        StartCoroutine(GPSLoc());
+        if (!isUpdating)
+        {
+            StartCoroutine(GetLocation());
+            isUpdating = !isUpdating;
+        }
     }
-    
-    IEnumerator GPSLoc()
-    {
-        // check if user has location sevice enabled
-        if (!Input.location.isEnabledByUser)
-            yield break;
 
-        //start service before querying location
+    IEnumerator GetLocation()
+    {
+        if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation)) 
+        {
+            Permission.RequestUserPermission(Permission.FineLocation);
+            Permission.RequestUserPermission(Permission.CoarseLocation);
+        }
+
+        if (!Input.location.isEnabledByUser)
+        {
+            yield return new WaitForSeconds(3);
+        }
+
         Input.location.Start();
 
-        //wait until service initailize
-        int maxWait = 20;
+        int maxWait = 3;
         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
         {
             yield return new WaitForSeconds(1);
             maxWait--;
         }
-        //service didn't init in 20 secs
+
         if (maxWait < 1)
         {
-            GPSStatus.text = "Time Out";
+            GPSOut.text = "Timed Out";
+            print("Timed out");
             yield break;
         }
-        //connection failed 
+
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            GPSStatus.text = "Unable to determine device location";
+            GPSOut.text = "Unable to determine device location";
+            print("Unable to determine device location");
             yield break;
         }
         else
         {
-            //Access granted
-            GPSStatus.text = "Running";
-            InvokeRepeating("UpdateGPSData", 0.5f, 1f);
+            GPSOut.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude;
+                print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude);
         }
-    }
 
-    private void UpdateGPSData()
-    {
-        if (Input.location.status == LocationServiceStatus.Running)
-        {
-            //Access granted to GPS values and it has been init
-            GPSStatus.text = "Running";
-            latitudeValue.text = Input.location.lastData.latitude.ToString();
-            longitudeValue.text = Input.location.lastData.longitude.ToString();
-            TimeStampValue.text = Input.location.lastData.timestamp.ToString();
-        }
-        else
-        {
-            //Service is stopped
-        }
+        isUpdating = !isUpdating;
+        Input.location.Stop();
     }
 }
