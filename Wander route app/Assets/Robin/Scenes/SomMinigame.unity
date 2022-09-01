@@ -843,8 +843,7 @@ MonoBehaviour:
   - {fileID: 3540320784248657881, guid: dd8c3b2f536c8bc4798289c6e76f5f52, type: 3}
   multiply: {fileID: 7699768137691900686, guid: a16ef998eabb16b45b3979c4c43542b4, type: 3}
   add: {fileID: 6209814579496318353, guid: ebe6ca08c146ada49905e4f2ad83d345, type: 3}
-  wrong: {fileID: 0}
-  answerfield: {fileID: 0}
+  wrong: {fileID: 9208828012544280462, guid: 3b16b0fa9649c184790fba9532056b8c, type: 3}
 --- !u!4 &827732981
 Transform:
   m_ObjectHideFlags: 0

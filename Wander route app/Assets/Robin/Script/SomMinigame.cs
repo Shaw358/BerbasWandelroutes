@@ -9,8 +9,6 @@ public class SomMinigame : MonoBehaviour
     [SerializeField] private GameObject multiply;
     [SerializeField] private GameObject add;
     [SerializeField] private GameObject wrong;
-    [SerializeField] private TMP_InputField answerfield;
-
     private bool multiplied = false;
     
     private int numb1;
@@ -51,11 +49,10 @@ public class SomMinigame : MonoBehaviour
         }
     }
 
-    void CheckSolution()
+    void CheckSolution(int button)
     {
         //check answer
-        print(int.Parse(answerfield.text));
-        if (int.Parse(answerfield.text) == solution)
+        if (button == solution)
         {
             //Switch Scenes
             SceneManager.LoadScene("Map");
