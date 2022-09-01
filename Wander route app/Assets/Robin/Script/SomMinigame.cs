@@ -30,9 +30,9 @@ public class SomMinigame : MonoBehaviour
         int tempnumb1;
         int tempnumb2;
         tempnumb1 = Random.Range(0, numbers.Length);
-        Instantiate(numbers[tempnumb1], new Vector3(Random.Range(0, 6), Random.Range(0, 4), Random.Range(0, 6)), transform.rotation);
+        Instantiate(numbers[tempnumb1], new Vector3(Random.Range(-7, 7), Random.Range(0, 4), Random.Range(-7, 7)), transform.rotation);
         tempnumb2 = Random.Range(0, numbers.Length);
-        Instantiate(numbers[tempnumb2], new Vector3(Random.Range(0, 6), Random.Range(0, 4), Random.Range(0, 6)), transform.rotation);
+        Instantiate(numbers[tempnumb2], new Vector3(Random.Range(-7, 7), Random.Range(0, 4), Random.Range(-7, 7)), transform.rotation);
         numb1 = tempnumb1 + 1;
         numb2 = tempnumb2 + 1;
         FindSolution();
