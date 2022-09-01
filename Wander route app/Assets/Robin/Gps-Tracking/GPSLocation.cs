@@ -7,7 +7,6 @@ using TMPro;
 
 public class GPSLocation : MonoBehaviour
 {
-    public TextMeshProUGUI GPSOut;
     public bool isUpdating;
     private void Update()
     {
@@ -42,21 +41,21 @@ public class GPSLocation : MonoBehaviour
 
         if (maxWait < 1)
         {
-            GPSOut.text = "Timed Out";
             print("Timed out");
             yield break;
         }
 
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            GPSOut.text = "Unable to determine device location";
             print("Unable to determine device location");
             yield break;
         }
         else
         {
-            GPSOut.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude;
-                print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude);
+            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude);
+            //Update Player Location with Gps location
+            //Assign GPS locations to pinpionts 1 to 4
+            //GPS BerBas = 52.16205567892675, 5.96111707115013
         }
 
         isUpdating = !isUpdating;
