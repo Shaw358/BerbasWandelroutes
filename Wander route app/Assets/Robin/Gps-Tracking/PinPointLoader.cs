@@ -20,7 +20,7 @@ public class PinPointLoader : MonoBehaviour
     }
 
 
-    private void OnMouseEnter()
+    public void ChangeScene()
     {
         if (interactable)
         {
