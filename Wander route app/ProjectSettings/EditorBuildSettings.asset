@@ -6,7 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Robin/Gps-Tracking/TrackerTester.unity
-    guid: 949a91ad7b78a4649a361bacdedb7946
+    path: Assets/Lucas/Scenes/AppelMinigame.unity
+    guid: a22772f0c9e3c1940a763925e0b8fa7c
   m_configObjects:
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 615396c27710525409819a0e8d1ef74a, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f1d8d7fc6a0aa3a448d830d0481537e5, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 41f6e18963ff1cf4288c0065aac26723, type: 2}
