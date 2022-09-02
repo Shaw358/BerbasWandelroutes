@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 190035939}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &190035939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,7 +787,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 792759086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &792759086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1401,7 +1425,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1149906448}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1149906448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1983,7 +2019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1528495422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1528495422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,7 +2153,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1554299770}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1554299770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2227,7 +2287,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1628210207}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1628210207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,7 +3190,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1994337482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1994337482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3240,7 +3324,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2042547711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2042547711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3362,7 +3458,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068742804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 827732980}
+        m_TargetAssemblyTypeName: SomMinigame, Assembly-CSharp
+        m_MethodName: CheckSolution
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2068742804
 MonoBehaviour:
   m_ObjectHideFlags: 0
