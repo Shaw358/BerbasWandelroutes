@@ -428,8 +428,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GPS Location
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 514adac3173a16d4d818603a1c012284, type: 2}
+  m_sharedMaterial: {fileID: -8911614231031498572, guid: 514adac3173a16d4d818603a1c012284, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -532,7 +532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c6ce66ded422d45bf54469ec205259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GPSOut: {fileID: 2037076953}
   isUpdating: 0
 --- !u!4 &1915602939
 Transform:
