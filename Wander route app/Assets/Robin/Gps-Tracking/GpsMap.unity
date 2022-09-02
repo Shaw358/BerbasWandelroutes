@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 34900036}
   - component: {fileID: 34900038}
   - component: {fileID: 34900037}
+  - component: {fileID: 34900039}
+  - component: {fileID: 34900040}
   m_Layer: 5
   m_Name: Pinpoint(1)
   m_TagString: Untagged
@@ -199,6 +201,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34900035}
   m_CullTransparentMesh: 1
+--- !u!58 &34900039
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34900035}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5557251, y: -51.29928}
+  serializedVersion: 2
+  m_Radius: 54.60305
+--- !u!114 &34900040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34900035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3361b09c8c5cbce4ea8bbac3543baeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumb: 0
+  objectTag: Player
 --- !u!1 &434498346
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +323,8 @@ GameObject:
   - component: {fileID: 503980628}
   - component: {fileID: 503980630}
   - component: {fileID: 503980629}
+  - component: {fileID: 503980631}
+  - component: {fileID: 503980632}
   m_Layer: 5
   m_Name: Pinpoint(4)
   m_TagString: Untagged
@@ -356,6 +390,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503980627}
   m_CullTransparentMesh: 1
+--- !u!58 &503980631
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503980627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -55.792816}
+  serializedVersion: 2
+  m_Radius: 56.292816
+--- !u!114 &503980632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503980627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3361b09c8c5cbce4ea8bbac3543baeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumb: 0
+  objectTag: Player
 --- !u!1 &1178522406
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,9 +516,10 @@ GameObject:
   - component: {fileID: 1304829935}
   - component: {fileID: 1304829934}
   - component: {fileID: 1304829936}
+  - component: {fileID: 1304829937}
   m_Layer: 5
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -530,6 +595,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUpdating: 0
+--- !u!50 &1304829937
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304829932}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1353879112
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +627,8 @@ GameObject:
   - component: {fileID: 1353879113}
   - component: {fileID: 1353879115}
   - component: {fileID: 1353879114}
+  - component: {fileID: 1353879116}
+  - component: {fileID: 1353879117}
   m_Layer: 5
   m_Name: Pinpoint(2)
   m_TagString: Untagged
@@ -606,6 +694,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353879112}
   m_CullTransparentMesh: 1
+--- !u!58 &1353879116
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353879112}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -48.420036}
+  serializedVersion: 2
+  m_Radius: 48.920036
+--- !u!114 &1353879117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353879112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3361b09c8c5cbce4ea8bbac3543baeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumb: 0
+  objectTag: Player
 --- !u!1 &1355128701
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +735,8 @@ GameObject:
   - component: {fileID: 1355128702}
   - component: {fileID: 1355128704}
   - component: {fileID: 1355128703}
+  - component: {fileID: 1355128705}
+  - component: {fileID: 1355128706}
   m_Layer: 5
   m_Name: Pinpoint(3)
   m_TagString: Untagged
@@ -682,6 +802,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355128701}
   m_CullTransparentMesh: 1
+--- !u!58 &1355128705
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355128701}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.6645966, y: -51.208405}
+  serializedVersion: 2
+  m_Radius: 75.4301
+--- !u!114 &1355128706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355128701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3361b09c8c5cbce4ea8bbac3543baeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumb: 0
+  objectTag: Player
 --- !u!1 &1420603572
 GameObject:
   m_ObjectHideFlags: 0

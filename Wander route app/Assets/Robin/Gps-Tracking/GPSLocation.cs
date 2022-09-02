@@ -8,6 +8,8 @@ using TMPro;
 public class GPSLocation : MonoBehaviour
 {
     public bool isUpdating;
+    
+    private Vector3 previouscoords;
     private void Update()
     {
         if (!isUpdating)
@@ -52,6 +54,9 @@ public class GPSLocation : MonoBehaviour
         }
         else
         {
+            transform.position = new Vector3(previouscoords.x - Input.location.lastData.latitude, 0, previouscoords.z - Input.location.lastData.longitude);
+
+            previouscoords = new Vector3(Input.location.lastData.latitude, 0, Input.location.lastData.longitude);
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude);
             //Update Player Location with Gps location
             //Assign GPS locations to pinpionts 1 to 4
