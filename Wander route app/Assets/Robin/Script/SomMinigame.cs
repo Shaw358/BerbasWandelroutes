@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SomMinigame : MonoBehaviour
 {
     [SerializeField] private GameObject[] numbers;
-    [SerializeField] private GameObject multiply;
     [SerializeField] private GameObject add;
     [SerializeField] private GameObject wrong;
     [SerializeField] private TextMeshProUGUI answerfield;
@@ -17,7 +16,6 @@ public class SomMinigame : MonoBehaviour
     private GameObject plusclone;
 
     private bool firstnumbfilled;
-    private bool multiplied = false;
     private int numb1;
     private int numb2;
     private int solution;
@@ -40,8 +38,8 @@ public class SomMinigame : MonoBehaviour
 
         instaNumb1 = Instantiate(numbers[usedNumb1], SetPosition(), transform.rotation);
         instaNumb2 = Instantiate(numbers[usedNumb2], SetPosition(), transform.rotation);
-        numb1 = usedNumb1 + 1;
-        numb2 = usedNumb2 + 1;
+        numb1 = usedNumb1;
+        numb2 = usedNumb2;
         FindSolution();
     }
     Vector3 SetPosition()
@@ -61,25 +59,21 @@ public class SomMinigame : MonoBehaviour
     }
     void FindSolution()
     {
-        if (!multiplied)
         {
+            //solution = numb1 + 1 + numb2 + 1;
             solution = numb1 + numb2;
+            Debug.Log(solution + " = " + numb1 + " " + numb2);
             plusclone = Instantiate(add, SetPosition(), transform.rotation);
-        }
-        else
-        {
-            solution = numb1 * numb2;
-            plusclone = Instantiate(multiply, SetPosition(), transform.rotation);
         }
     }
     public void CheckSolution(int button)
     {
-        
         if (solution < 10)
         {
             Debug.Log(solution);
             if (button == solution)
             {
+                answerfield.text = button.ToString();
                 EndgameScreen();
             }
             else
@@ -98,10 +92,13 @@ public class SomMinigame : MonoBehaviour
             if (!firstnumbfilled)
             {
                 firstButton = button;
+                answerfield.text += firstButton.ToString();
             }
             else
             {
                 secondButton = button;
+                answerfield.text += secondButton.ToString();
+
                 if ((firstButton * 10 + secondButton) == solution)
                 {
                     EndgameScreen();
@@ -125,7 +122,7 @@ public class SomMinigame : MonoBehaviour
     }
     private void EndgameScreen()
     {
-        
+        Debug.Log("Reached End");
         
 
     }
