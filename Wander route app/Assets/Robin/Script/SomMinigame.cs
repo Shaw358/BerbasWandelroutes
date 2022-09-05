@@ -9,7 +9,7 @@ public class SomMinigame : MonoBehaviour
     [SerializeField] private GameObject add;
     [SerializeField] private GameObject wrong;
     [SerializeField] private TextMeshProUGUI answerfield;
-
+    [SerializeField] private GameObject endScreen;
 
     private GameObject instaNumb1;
     private GameObject instaNumb2;
@@ -92,21 +92,24 @@ public class SomMinigame : MonoBehaviour
             if (!firstnumbfilled)
             {
                 firstButton = button;
+                firstnumbfilled = true;
                 answerfield.text += firstButton.ToString();
             }
             else
             {
                 secondButton = button;
                 answerfield.text += secondButton.ToString();
-
+                Debug.Log(firstButton * 10 + secondButton);
                 if ((firstButton * 10 + secondButton) == solution)
                 {
+                    
                     EndgameScreen();
                 }
                 else
                 {
                     Debug.Log("Bigger just wrong");
                     //red x over question
+                    Instantiate(wrong);
                     Destroy(instaNumb1);
                     Destroy(instaNumb2);
                     Destroy(plusclone);
@@ -123,7 +126,7 @@ public class SomMinigame : MonoBehaviour
     private void EndgameScreen()
     {
         Debug.Log("Reached End");
-        
+        endScreen.SetActive(true);
 
     }
 }
