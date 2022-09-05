@@ -9,6 +9,10 @@ public class PinPointLoader : MonoBehaviour
     [SerializeField] private string objectTag;
     private bool interactable;
 
+    private void Awake()
+    {
+        interactable = true;
+    }
 
     // Update is called once per frame
     private void OnCollisionStay2D(Collision2D collision)
@@ -19,12 +23,11 @@ public class PinPointLoader : MonoBehaviour
         }
     }
 
-
     public void ChangeScene()
     {
         if (interactable)
         {
-            SceneManager.LoadScene(sceneNumb);
+            SceneManager.LoadSceneAsync(sceneNumb);
         }
     }
 }

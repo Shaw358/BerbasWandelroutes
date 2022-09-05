@@ -16,6 +16,8 @@ public class CodeHolder : MonoSingleton<CodeHolder>
     [SerializeField] TextMeshProUGUI gui;
     [SerializeField] TextMeshProUGUI playerHintsText;
 
+    [SerializeField] bool firstTime;
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += FindTextmeshOnSceneLoaded;
@@ -65,11 +67,18 @@ public class CodeHolder : MonoSingleton<CodeHolder>
 
     public void FindTextmeshOnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "map")
+        if (scene.name == "GpsMap")
         {
-            if (currentUnlocked <= 3)
+            Debug.Log(firstTime);
+            if (firstTime)
+            {
+                firstTime = false;
+                return;
+            }
+            else if (currentUnlocked <= 3)
             {
                 gui = GameObject.Find("SecretCodeText").GetComponent<TextMeshProUGUI>();
+                playerHintsText = GameObject.Find("PlayerHints").GetComponent<TextMeshProUGUI>();
                 UnlockNextPiece();
                 UpdateOnScreenVal();
             }

@@ -259,6 +259,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294987256}
   m_CullTransparentMesh: 1
+--- !u!1 &380005470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380005472}
+  - component: {fileID: 380005471}
+  - component: {fileID: 380005473}
+  m_Layer: 0
+  m_Name: CodeHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &380005471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380005470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae11ebb9b01e78d41977b4a527403e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockNext: 0
+  serializedCode: 1234
+  gui: {fileID: 0}
+  playerHintsText: {fileID: 0}
+  firstTime: 1
+--- !u!4 &380005472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380005470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &380005473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380005470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de37405275c1ad44eb884135e9834a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &434498346
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3361b09c8c5cbce4ea8bbac3543baeeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNumb: 1
+  sceneNumb: 2
   objectTag: Player
 --- !u!114 &846452612
 MonoBehaviour:
@@ -759,12 +821,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -933,7 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3361b09c8c5cbce4ea8bbac3543baeeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNumb: 0
+  sceneNumb: 1
   objectTag: Player
 --- !u!114 &1780796425
 MonoBehaviour:
@@ -978,7 +1040,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1780796426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1780796424}
+        m_TargetAssemblyTypeName: PinPointLoader, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1780796426
 MonoBehaviour:
   m_ObjectHideFlags: 0

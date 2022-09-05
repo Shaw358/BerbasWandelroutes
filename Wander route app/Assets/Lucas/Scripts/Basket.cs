@@ -25,7 +25,6 @@ public class Basket : MonoBehaviour
             fruitsCollected++;
             if (fruitsCollected >= fruitsToCollect)
             {
-                Debug.Log("Am here!");
                 onApplesCollected?.Invoke();
                 return;
             }
