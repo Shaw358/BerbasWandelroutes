@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Robin/Gps-Tracking/GpsMap.unity
     guid: 846a7e8e262b66b47acc2c14a1f152f1
   - enabled: 1
+    path: Assets/Lucas/Scenes/GPS.unity
+    guid: 2b2884c198b5caa4ea56a23c199f7b25
+  - enabled: 1
     path: Assets/Lucas/Scenes/AppelMinigame.unity
     guid: a22772f0c9e3c1940a763925e0b8fa7c
   - enabled: 1
