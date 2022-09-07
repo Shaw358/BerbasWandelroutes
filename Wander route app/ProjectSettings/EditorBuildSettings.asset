@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Robin/Scenes/CompassRotation.unity
+    guid: 5453201bb1252ff48b863e3e815aefed
+  - enabled: 1
     path: Assets/Robin/Gps-Tracking/GpsMap.unity
     guid: 846a7e8e262b66b47acc2c14a1f152f1
   - enabled: 1

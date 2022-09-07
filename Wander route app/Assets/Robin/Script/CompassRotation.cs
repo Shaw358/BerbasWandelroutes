@@ -1,16 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Android;
 
 public class CompassRotation : MonoBehaviour
 {
 
-    // Update is called once per frame
+    private bool startTracking = false;
+
+    void Start()
+    {
+        Input.compass.enabled = true;
+        Input.location.Start();
+        StartCoroutine(InitializeCompass());
+    }
+
     void Update()
     {
+        if (startTracking)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, Input.compass.trueHeading);
+        }
+    }
 
-        //Roteer de compas op de Y angle richting de noordpool
-        transform.rotation = Quaternion.Euler(0, 0, -Input.compass.trueHeading);    
+    IEnumerator InitializeCompass()
+    {
+        yield return new WaitForSeconds(1f);
+        startTracking |= Input.compass.enabled;
     }
 }
