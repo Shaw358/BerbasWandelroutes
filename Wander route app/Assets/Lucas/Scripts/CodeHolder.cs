@@ -67,7 +67,7 @@ public class CodeHolder : MonoSingleton<CodeHolder>
 
     public void FindTextmeshOnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GpsMap")
+        if (scene.name == "GPS")
         {
             Debug.Log(firstTime);
             if (firstTime)

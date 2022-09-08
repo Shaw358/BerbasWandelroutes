@@ -398,8 +398,14 @@ namespace Mapbox.Unity.Map
 			//Fuck you Mapbox
 
 			//Options.scalingOptions.scalingStrategy.SetUpScaling(this); 
+			try
+            {
 			Options.placementOptions.placementStrategy.SetUpPlacement(this);
+            }
+			catch
+            {
 
+            }
 			//Scale the map accordingly.
 			if (Math.Abs(differenceInZoom) > Constants.EpsilonFloatingPoint || isAtInitialZoom)
 			{
