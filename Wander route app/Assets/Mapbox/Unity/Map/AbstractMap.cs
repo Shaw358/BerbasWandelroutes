@@ -388,7 +388,16 @@ namespace Mapbox.Unity.Map
 
 			//Set Center in Latitude Longitude and Mercator.
 			SetCenterLatitudeLongitude(new Vector2d(xDelta, zDelta));
-			Options.scalingOptions.scalingStrategy.SetUpScaling(this);
+
+			var referenceTileRect = Conversions.TileBounds(TileCover.CoordinateToTileId(this.CenterLatitudeLongitude, this.AbsoluteZoom));
+			this.SetWorldRelativeScale((float)(this.Options.scalingOptions.unityTileSize / referenceTileRect.Size.x));
+
+			//FIXME: Alright, I shouldn't have to know why but scalingstrategy and placementstrategy are both null's which I can't fix.
+			//And for some unholy reason, if I remove line 400 this function stops working.
+			//oh and one more thing, IF LINE 400 IS NOT GIVING AN ERROR THE CODE DOESN'T WORK, IT REQUIRES THE ERROR TO FUNCTION.
+			//Fuck you Mapbox
+
+			//Options.scalingOptions.scalingStrategy.SetUpScaling(this); 
 			Options.placementOptions.placementStrategy.SetUpPlacement(this);
 
 			//Scale the map accordingly.

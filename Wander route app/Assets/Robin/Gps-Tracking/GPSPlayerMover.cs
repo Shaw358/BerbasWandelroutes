@@ -5,7 +5,7 @@ using TMPro;
 
 public class GPSPlayerMover : MonoBehaviour
 {
-    [SerializeField] Vector2 topLeft;
+    /*[SerializeField] Vector2 topLeft;
     [SerializeField] Vector2 topRight;
     [SerializeField] Vector2 bottomLeft;
     [SerializeField] Vector2 bottomRight;
@@ -67,5 +67,5 @@ public class GPSPlayerMover : MonoBehaviour
     {
         float currentX = Mathf.InverseLerp(topLeft.x, topRight.x, Input.location.lastData.latitude);
         float currentY = Mathf.InverseLerp(topLeft.y, bottomLeft.y, Input.location.lastData.longitude);
-    }
+    }*/
 }
