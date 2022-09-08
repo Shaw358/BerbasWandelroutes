@@ -84,6 +84,7 @@ public class SomMinigame : MonoBehaviour
                 Destroy(instaNumb2);
                 Destroy(plusclone);
                 SetNumbers();
+                answerfield.text = "";
             }
         }
         else
@@ -114,6 +115,7 @@ public class SomMinigame : MonoBehaviour
                     Destroy(instaNumb2);
                     Destroy(plusclone);
                     SetNumbers();
+                    answerfield.text = "";
                 }
             }
         }
