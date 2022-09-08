@@ -6,35 +6,40 @@ using UnityEngine.SceneManagement;
 public class SomMinigame : MonoBehaviour
 {
     [SerializeField] private GameObject[] numbers;
-    [SerializeField] private GameObject multiply;
     [SerializeField] private GameObject add;
     [SerializeField] private GameObject wrong;
     [SerializeField] private TextMeshProUGUI answerfield;
+    [SerializeField] private GameObject endScreen;
 
-    private bool multiplied = false;
-    
+    private GameObject instaNumb1;
+    private GameObject instaNumb2;
+    private GameObject plusclone;
+
+    private bool firstnumbfilled;
     private int numb1;
     private int numb2;
     private int solution;
+    private int usedNumb1;
+    private int usedNumb2;
+    private int firstButton;
+    private int secondButton;
 
     // Start is called before the first frame update
     void Start()
     {
         SetNumbers();
     }
-
     void SetNumbers()
     {
         // X -6 tot 6 meter    Y maximaal 4 meter hoog  Z zelfde als X 
         //Random.Range(-6, 6), Random.Range(0, 4), Random.Range(-6,6)
-        int tempnumb1;
-        int tempnumb2;
-        tempnumb1 = Random.Range(0, numbers.Length);
-        Instantiate(numbers[tempnumb1], SetPosition(), transform.rotation);
-        tempnumb2 = Random.Range(0, numbers.Length);
-        Instantiate(numbers[tempnumb2], SetPosition(), transform.rotation);
-        numb1 = tempnumb1 + 1;
-        numb2 = tempnumb2 + 1;
+        usedNumb1 = Random.Range(0, numbers.Length);
+        usedNumb2 = Random.Range(0, numbers.Length);
+
+        instaNumb1 = Instantiate(numbers[usedNumb1], SetPosition(), transform.rotation);
+        instaNumb2 = Instantiate(numbers[usedNumb2], SetPosition(), transform.rotation);
+        numb1 = usedNumb1;
+        numb2 = usedNumb2;
         FindSolution();
     }
     Vector3 SetPosition()
@@ -54,71 +59,74 @@ public class SomMinigame : MonoBehaviour
     }
     void FindSolution()
     {
-        if (!multiplied)
         {
+            //solution = numb1 + 1 + numb2 + 1;
             solution = numb1 + numb2;
-            Instantiate(add);
-        }
-        else
-        {
-            solution = numb1 * numb2;
-            Instantiate(multiply);
+            Debug.Log(solution + " = " + numb1 + " " + numb2);
+            plusclone = Instantiate(add, SetPosition(), transform.rotation);
         }
     }
-
     public void CheckSolution(int button)
     {
-        //answers are pressed on from the UI, in cases where answers could be 10 and up, 2 buttons should be able to be pressed
-        //check answer
-        //for button control seperate the 2 digits if the solution is bigger than 9
-        if (solution >= 10)
+        if (solution < 10)
         {
-            int solutionTen = solution / 10;
-            int solutionSingle = solution % 10;
-            int firstButton = 0;
-            int secondButton = 0;
-            if (firstButton != 0)
+            Debug.Log(solution);
+            if (button == solution)
             {
-                secondButton = button;
+                answerfield.text = button.ToString();
+                EndgameScreen();
             }
             else
             {
-                firstButton = button;
+                Debug.Log("just wrong");
+                //red x over question
+                Destroy(instaNumb1);
+                Destroy(instaNumb2);
+                Destroy(plusclone);
+                SetNumbers();
             }
-            answerfield.text += firstButton;
-            answerfield.text += secondButton;
-            if (firstButton == solutionTen)
+        }
+        else
+        {
+            Debug.Log(solution);
+            if (!firstnumbfilled)
             {
-                if (secondButton == solutionSingle)
+                firstButton = button;
+                firstnumbfilled = true;
+                answerfield.text += firstButton.ToString();
+            }
+            else
+            {
+                secondButton = button;
+                answerfield.text += secondButton.ToString();
+                Debug.Log(firstButton * 10 + secondButton);
+                if ((firstButton * 10 + secondButton) == solution)
                 {
-                    //Switch Scenes
-                    SceneManager.LoadScene("Map");
+                    
+                    EndgameScreen();
                 }
                 else
                 {
+                    Debug.Log("Bigger just wrong");
                     //red x over question
                     Instantiate(wrong);
+                    Destroy(instaNumb1);
+                    Destroy(instaNumb2);
+                    Destroy(plusclone);
                     SetNumbers();
-                    Destroy(wrong);
                 }
             }
         }
-        else
-        {
-            answerfield.text += button;
-            if (solution == button)
-            {
-                //Switch Scenes
-                SceneManager.LoadScene("Map");
-            }
-            else
-            {
-                //red x over question
-                Instantiate(wrong);
-                SetNumbers();
-                Destroy(wrong);
-            }
-        }
+    }
+
+    public void BacktoMap()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+    private void EndgameScreen()
+    {
+        Debug.Log("Reached End");
+        endScreen.SetActive(true);
 
     }
 }
