@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class Basket : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Basket : MonoBehaviour
 
     [SerializeField] AudioSource appleCaughtSoundEffect;
     [SerializeField] UnityEvent onApplesCollected;
+
+    [SerializeField] TextMeshProUGUI caughtApples;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -23,6 +26,8 @@ public class Basket : MonoBehaviour
             collision.transform.localPosition = new Vector3(0,0,0);
 
             fruitsCollected++;
+            caughtApples.text = "Gevangen appels: " + fruitsCollected;
+
             if (fruitsCollected >= fruitsToCollect)
             {
                 onApplesCollected?.Invoke();
