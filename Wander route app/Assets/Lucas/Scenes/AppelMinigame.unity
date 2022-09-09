@@ -783,7 +783,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: kun jij er 10 vangen?
+  m_text: "Met een mandje in je hand is het jouw taak om 10 appels te vangen. \n\nAls
+    jou dit lukt wacht er een stukje van de geheime code op je!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 514adac3173a16d4d818603a1c012284, type: 2}
   m_sharedMaterial: {fileID: -8911614231031498572, guid: 514adac3173a16d4d818603a1c012284, type: 2}
