@@ -71,6 +71,7 @@ public class SomMinigame : MonoBehaviour
         numb1 = usedNumb1;
         numb2 = usedNumb2;
         FindSolution();
+        FillAnswerButtons();
     }
     Vector3 SetPosition()
     {
@@ -105,58 +106,65 @@ public class SomMinigame : MonoBehaviour
     }
     public void CheckSolution(int button)
     {
-        if (solution < 10)
+        //check elke button voor de correcte antwoord
+    }
+    private void FillAnswerButtons()
+    { 
+        switch (Random.Range(1, 4))
         {
-            Debug.Log(solution);
-            if (button == solution)
-            {
-                answerfield.text = button.ToString();
-                EndgameScreen();
-            }
-            else
-            {
-                Debug.Log("just wrong");
-                //red x over question
-                Destroy(instaNumb1);
-                Destroy(instaNumb2);
-                Destroy(calculationclone);
-                SetNumbers();
-                answerfield.text = "";
-            }
-        }
-        else
-        {
-            Debug.Log(solution);
-            if (!firstnumbfilled)
-            {
-                firstButton = button;
-                firstnumbfilled = true;
-                answerfield.text += firstButton.ToString();
-            }
-            else
-            {
-                secondButton = button;
-                answerfield.text += secondButton.ToString();
-                Debug.Log(firstButton * 10 + secondButton);
-                if ((firstButton * 10 + secondButton) == solution)
+            //temp solution rework to negate double answers - foreach case
+            case 1:
+                answerButton_1.text = solution.ToString();
+                answerButton_2.text = Random.Range(0, 18).ToString();
+                answerButton_3.text = Random.Range(0, 18).ToString();
+                answerButton_4.text = Random.Range(0, 18).ToString();
+                if (answerButton_2 == answerButton_1 || answerButton_3 == answerButton_1 || answerButton_4 == answerButton_1)
                 {
-                    
-                    EndgameScreen();
+                    answerButton_1.text = Random.Range(0, 18).ToString();
+                    answerButton_3.text = Random.Range(0, 18).ToString();
+                    answerButton_4.text = Random.Range(0, 18).ToString();
                 }
-                else
+                break;
+            case 2:
+                answerButton_2.text = solution.ToString();
+                answerButton_1.text = Random.Range(0, 18).ToString();
+                answerButton_3.text = Random.Range(0, 18).ToString();
+                answerButton_4.text = Random.Range(0, 18).ToString();
+                if (answerButton_1 == answerButton_2 || answerButton_3 == answerButton_2 || answerButton_4 == answerButton_2)
                 {
-                    Debug.Log("Bigger just wrong");
-                    //red x over question
-                    Instantiate(wrong);
-                    Destroy(instaNumb1);
-                    Destroy(instaNumb2);
-                    Destroy(calculationclone);
-                    SetNumbers();
-                    answerfield.text = "";
+                    answerButton_1.text = Random.Range(0, 18).ToString();
+                    answerButton_3.text = Random.Range(0, 18).ToString();
+                    answerButton_4.text = Random.Range(0, 18).ToString();
                 }
-            }
+                break;
+            case 3:
+                answerButton_3.text = solution.ToString();
+                answerButton_1.text = Random.Range(0, 18).ToString();
+                answerButton_2.text = Random.Range(0, 18).ToString();
+                answerButton_4.text = Random.Range(0, 18).ToString();
+                if (answerButton_2 == answerButton_3 || answerButton_1 == answerButton_3 || answerButton_4 == answerButton_3)
+                {
+                    answerButton_1.text = Random.Range(0, 18).ToString();
+                    answerButton_3.text = Random.Range(0, 18).ToString();
+                    answerButton_4.text = Random.Range(0, 18).ToString();
+                }
+                break;
+            case 4:
+                answerButton_4.text = solution.ToString();
+                answerButton_1.text = Random.Range(0, 18).ToString();
+                answerButton_2.text = Random.Range(0, 18).ToString();
+                answerButton_3.text = Random.Range(0, 18).ToString();
+                if (answerButton_1 == answerButton_4 || answerButton_2 == answerButton_4 || answerButton_3 == answerButton_4)
+                {
+                    answerButton_1.text = Random.Range(0, 18).ToString();
+                    answerButton_3.text = Random.Range(0, 18).ToString();
+                    answerButton_4.text = Random.Range(0, 18).ToString();
+                }
+                break;
         }
     }
+
+
     public void BacktoMap()
     {
         SceneManager.LoadSceneAsync(0);
