@@ -7,15 +7,22 @@ public class SomMinigame : MonoBehaviour
 {
     [SerializeField] private GameObject[] numbers;
     [SerializeField] private GameObject add;
+    [SerializeField] private GameObject minus;
     [SerializeField] private GameObject wrong;
     [SerializeField] private TextMeshProUGUI answerfield;
     [SerializeField] private GameObject endScreen;
 
+    [SerializeField] private TextMeshProUGUI answerButton_1;
+    [SerializeField] private TextMeshProUGUI answerButton_2;
+    [SerializeField] private TextMeshProUGUI answerButton_3;
+    [SerializeField] private TextMeshProUGUI answerButton_4;
+
     private GameObject instaNumb1;
     private GameObject instaNumb2;
-    private GameObject plusclone;
+    private GameObject calculationclone;
 
     private bool firstnumbfilled;
+    private bool additive;
     private int numb1;
     private int numb2;
     private int solution;
@@ -29,6 +36,29 @@ public class SomMinigame : MonoBehaviour
     {
         SetNumbers();
     }
+
+    private void FixedUpdate()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 8))
+        {
+            //check if it's number 1 or 2 and show it in bottom images if collided.
+            //zet dit script op camera of zet camera.main voor transform.position
+        }
+    }
+    private bool Randombool()
+    {
+        if (Random.value >= .5f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
     void SetNumbers()
     {
         // X -6 tot 6 meter    Y maximaal 4 meter hoog  Z zelfde als X 
@@ -59,11 +89,18 @@ public class SomMinigame : MonoBehaviour
     }
     void FindSolution()
     {
+        if (!additive)
+        {
+            solution = numb1 - numb2;
+            Debug.Log(solution + " = " + numb1 + " - " + numb2);
+            calculationclone = Instantiate(minus, SetPosition(), transform.rotation);
+        }
+        else
         {
             //solution = numb1 + 1 + numb2 + 1;
             solution = numb1 + numb2;
-            Debug.Log(solution + " = " + numb1 + " " + numb2);
-            plusclone = Instantiate(add, SetPosition(), transform.rotation);
+            Debug.Log(solution + " = " + numb1 + " + " + numb2);
+            calculationclone = Instantiate(add, SetPosition(), transform.rotation);
         }
     }
     public void CheckSolution(int button)
@@ -82,7 +119,7 @@ public class SomMinigame : MonoBehaviour
                 //red x over question
                 Destroy(instaNumb1);
                 Destroy(instaNumb2);
-                Destroy(plusclone);
+                Destroy(calculationclone);
                 SetNumbers();
                 answerfield.text = "";
             }
@@ -113,14 +150,13 @@ public class SomMinigame : MonoBehaviour
                     Instantiate(wrong);
                     Destroy(instaNumb1);
                     Destroy(instaNumb2);
-                    Destroy(plusclone);
+                    Destroy(calculationclone);
                     SetNumbers();
                     answerfield.text = "";
                 }
             }
         }
     }
-
     public void BacktoMap()
     {
         SceneManager.LoadSceneAsync(0);
