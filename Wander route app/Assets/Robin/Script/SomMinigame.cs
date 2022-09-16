@@ -12,28 +12,24 @@ public class SomMinigame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI answerfield;
     [SerializeField] private GameObject endScreen;
 
-    [SerializeField] private TextMeshProUGUI answerButton_1;
-    [SerializeField] private TextMeshProUGUI answerButton_2;
-    [SerializeField] private TextMeshProUGUI answerButton_3;
-    [SerializeField] private TextMeshProUGUI answerButton_4;
+    [SerializeField] private TextMeshProUGUI[] answerButtons;
 
     private GameObject instaNumb1;
     private GameObject instaNumb2;
     private GameObject calculationclone;
 
-    private bool firstnumbfilled;
     private bool additive;
     private int numb1;
     private int numb2;
+    private int[] fakeAnswerValue;
     private int solution;
     private int usedNumb1;
     private int usedNumb2;
-    private int firstButton;
-    private int secondButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        Randombool();
         SetNumbers();
     }
 
@@ -46,15 +42,15 @@ public class SomMinigame : MonoBehaviour
             //zet dit script op camera of zet camera.main voor transform.position
         }
     }
-    private bool Randombool()
+    private void Randombool()
     {
         if (Random.value >= .5f)
         {
-            return true;
+            additive = true;
         }
         else
         {
-            return false;
+            additive = false;
         }
     }
 
@@ -109,58 +105,22 @@ public class SomMinigame : MonoBehaviour
         //check elke button voor de correcte antwoord
     }
     private void FillAnswerButtons()
-    { 
-        switch (Random.Range(1, 4))
+    {
+        int answerSlot = Random.Range(1, 4);
+        for (int i = 0; i < answerSlot; i++)
         {
-            //temp solution rework to negate double answers - foreach case
-            case 1:
-                answerButton_1.text = solution.ToString();
-                answerButton_2.text = Random.Range(0, 18).ToString();
-                answerButton_3.text = Random.Range(0, 18).ToString();
-                answerButton_4.text = Random.Range(0, 18).ToString();
-                if (answerButton_2 == answerButton_1 || answerButton_3 == answerButton_1 || answerButton_4 == answerButton_1)
+            if (i == answerSlot)
+            {
+                answerButtons[i].text = solution.ToString();
+            }
+            else
+            {
+                fakeAnswerValue[i] = Random.Range(0, 18);
+                if (fakeAnswerValue[i] == solution)
                 {
-                    answerButton_1.text = Random.Range(0, 18).ToString();
-                    answerButton_3.text = Random.Range(0, 18).ToString();
-                    answerButton_4.text = Random.Range(0, 18).ToString();
+                    fakeAnswerValue[i] = Random.Range(0, 18);
                 }
-                break;
-            case 2:
-                answerButton_2.text = solution.ToString();
-                answerButton_1.text = Random.Range(0, 18).ToString();
-                answerButton_3.text = Random.Range(0, 18).ToString();
-                answerButton_4.text = Random.Range(0, 18).ToString();
-                if (answerButton_1 == answerButton_2 || answerButton_3 == answerButton_2 || answerButton_4 == answerButton_2)
-                {
-                    answerButton_1.text = Random.Range(0, 18).ToString();
-                    answerButton_3.text = Random.Range(0, 18).ToString();
-                    answerButton_4.text = Random.Range(0, 18).ToString();
-                }
-                break;
-            case 3:
-                answerButton_3.text = solution.ToString();
-                answerButton_1.text = Random.Range(0, 18).ToString();
-                answerButton_2.text = Random.Range(0, 18).ToString();
-                answerButton_4.text = Random.Range(0, 18).ToString();
-                if (answerButton_2 == answerButton_3 || answerButton_1 == answerButton_3 || answerButton_4 == answerButton_3)
-                {
-                    answerButton_1.text = Random.Range(0, 18).ToString();
-                    answerButton_3.text = Random.Range(0, 18).ToString();
-                    answerButton_4.text = Random.Range(0, 18).ToString();
-                }
-                break;
-            case 4:
-                answerButton_4.text = solution.ToString();
-                answerButton_1.text = Random.Range(0, 18).ToString();
-                answerButton_2.text = Random.Range(0, 18).ToString();
-                answerButton_3.text = Random.Range(0, 18).ToString();
-                if (answerButton_1 == answerButton_4 || answerButton_2 == answerButton_4 || answerButton_3 == answerButton_4)
-                {
-                    answerButton_1.text = Random.Range(0, 18).ToString();
-                    answerButton_3.text = Random.Range(0, 18).ToString();
-                    answerButton_4.text = Random.Range(0, 18).ToString();
-                }
-                break;
+            }
         }
     }
 
