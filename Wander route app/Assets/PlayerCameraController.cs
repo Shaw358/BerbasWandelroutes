@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCameraController : MonoBehaviour
 {
-    [SerializeField] GameObject _camera;
+    [SerializeField] Camera _camera;
     int currentZoomLevel;
 
     private void Start()
@@ -17,7 +17,7 @@ public class PlayerCameraController : MonoBehaviour
         if(currentZoomLevel > 0)
         {
             currentZoomLevel--;
-            _camera.transform.position = new Vector3(transform.position.x, transform.position.y - 250, transform.position.z);
+            _camera.orthographicSize -= 250;
         }
     }
 
@@ -26,7 +26,7 @@ public class PlayerCameraController : MonoBehaviour
         if (currentZoomLevel < 5)
         {
             currentZoomLevel++;
-            _camera.transform.position = new Vector3(transform.position.x, transform.position.y + 250, transform.position.z);
+            _camera.orthographicSize += 250;
         }
     }
 

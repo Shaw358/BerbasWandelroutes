@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Lucas/Scenes/GPS.unity
+    guid: 2b2884c198b5caa4ea56a23c199f7b25
+  - enabled: 1
     path: Assets/Lucas/Scenes/AppelMinigame.unity
     guid: a22772f0c9e3c1940a763925e0b8fa7c
   - enabled: 1
     path: Assets/Robin/Scenes/SomMinigame.unity
     guid: 23d30c06a1bb32a41a9deb9c5dc8d001
-  - enabled: 1
-    path: Assets/Lucas/Scenes/GPS.unity
-    guid: 2b2884c198b5caa4ea56a23c199f7b25
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f1d8d7fc6a0aa3a448d830d0481537e5, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 41f6e18963ff1cf4288c0065aac26723, type: 2}

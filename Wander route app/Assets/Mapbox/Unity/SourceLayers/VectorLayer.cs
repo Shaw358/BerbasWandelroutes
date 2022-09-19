@@ -615,6 +615,7 @@ namespace Mapbox.Unity.Map
 
 		#endregion
 
+		
 		#region Private helper methods
 		private void SetLayerSourceInternal(VectorSourceType vectorSource)
 		{
