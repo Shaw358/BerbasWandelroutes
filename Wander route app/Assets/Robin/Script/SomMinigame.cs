@@ -7,27 +7,52 @@ public class SomMinigame : MonoBehaviour
 {
     [SerializeField] private GameObject[] numbers;
     [SerializeField] private GameObject add;
+    [SerializeField] private GameObject minus;
     [SerializeField] private GameObject wrong;
     [SerializeField] private TextMeshProUGUI answerfield;
     [SerializeField] private GameObject endScreen;
 
+    [SerializeField] private TextMeshProUGUI[] answerButtons;
+
     private GameObject instaNumb1;
     private GameObject instaNumb2;
-    private GameObject plusclone;
+    private GameObject calculationclone;
 
-    private bool firstnumbfilled;
+    private bool additive;
+    private int solutionButtonNumb;
     private int numb1;
     private int numb2;
+    private int[] fakeAnswerValue;
     private int solution;
     private int usedNumb1;
     private int usedNumb2;
-    private int firstButton;
-    private int secondButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        Randombool();
         SetNumbers();
+    }
+
+    private void FixedUpdate()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 8))
+        {
+            //check if it's number 1 or 2 and show it in bottom images if collided.
+            //zet dit script op camera of zet camera.main voor transform.position
+        }
+    }
+    private void Randombool()
+    {
+        if (Random.value >= .5f)
+        {
+            additive = true;
+        }
+        else
+        {
+            additive = false;
+        }
     }
     void SetNumbers()
     {
@@ -41,6 +66,7 @@ public class SomMinigame : MonoBehaviour
         numb1 = usedNumb1;
         numb2 = usedNumb2;
         FindSolution();
+        FillAnswerButtons();
     }
     Vector3 SetPosition()
     {
@@ -59,66 +85,57 @@ public class SomMinigame : MonoBehaviour
     }
     void FindSolution()
     {
+        if (!additive)
+        {
+            solution = numb1 - numb2;
+            Debug.Log(solution + " = " + numb1 + " - " + numb2);
+            calculationclone = Instantiate(minus, SetPosition(), transform.rotation);
+        }
+        else
         {
             //solution = numb1 + 1 + numb2 + 1;
             solution = numb1 + numb2;
-            Debug.Log(solution + " = " + numb1 + " " + numb2);
-            plusclone = Instantiate(add, SetPosition(), transform.rotation);
+            Debug.Log(solution + " = " + numb1 + " + " + numb2);
+            calculationclone = Instantiate(add, SetPosition(), transform.rotation);
         }
     }
     public void CheckSolution(int button)
     {
-        if (solution < 10)
+        if (button == solutionButtonNumb)
         {
-            Debug.Log(solution);
-            if (button == solution)
-            {
-                answerfield.text = button.ToString();
-                EndgameScreen();
-            }
-            else
-            {
-                Debug.Log("just wrong");
-                //red x over question
-                Destroy(instaNumb1);
-                Destroy(instaNumb2);
-                Destroy(plusclone);
-                SetNumbers();
-                answerfield.text = "";
-            }
+
         }
         else
         {
-            Debug.Log(solution);
-            if (!firstnumbfilled)
+            Instantiate(wrong);
+            Destroy(instaNumb1);
+            Destroy(instaNumb2);
+            Destroy(wrong);
+            Randombool();
+            SetNumbers();
+        }
+    }
+
+    private void FillAnswerButtons()
+    {
+        int answerSlot = Random.Range(1, 4);
+        solutionButtonNumb = answerSlot;
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == answerSlot)
             {
-                firstButton = button;
-                firstnumbfilled = true;
-                answerfield.text += firstButton.ToString();
+                answerButtons[i].text = solution.ToString();
             }
             else
             {
-                secondButton = button;
-                answerfield.text += secondButton.ToString();
-                Debug.Log(firstButton * 10 + secondButton);
-                if ((firstButton * 10 + secondButton) == solution)
+                fakeAnswerValue[i] = Random.Range(0, 18);
+                if (fakeAnswerValue[i] == solution)
                 {
-                    
-                    EndgameScreen();
-                }
-                else
-                {
-                    Debug.Log("Bigger just wrong");
-                    //red x over question
-                    Instantiate(wrong);
-                    Destroy(instaNumb1);
-                    Destroy(instaNumb2);
-                    Destroy(plusclone);
-                    SetNumbers();
-                    answerfield.text = "";
+                    fakeAnswerValue[i] = Random.Range(0, 18);
                 }
             }
         }
+        
     }
 
     public void BacktoMap()

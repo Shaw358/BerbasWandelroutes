@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5782430245219566326}
   - component: {fileID: 5922898949946452773}
   - component: {fileID: 5451960046353905302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Keer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
