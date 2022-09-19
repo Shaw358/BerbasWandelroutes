@@ -19,6 +19,7 @@ public class SomMinigame : MonoBehaviour
     private GameObject calculationclone;
 
     private bool additive;
+    private int solutionButtonNumb;
     private int numb1;
     private int numb2;
     private int[] fakeAnswerValue;
@@ -53,8 +54,6 @@ public class SomMinigame : MonoBehaviour
             additive = false;
         }
     }
-
-
     void SetNumbers()
     {
         // X -6 tot 6 meter    Y maximaal 4 meter hoog  Z zelfde als X 
@@ -102,12 +101,26 @@ public class SomMinigame : MonoBehaviour
     }
     public void CheckSolution(int button)
     {
-        //check elke button voor de correcte antwoord
+        if (button == solutionButtonNumb)
+        {
+
+        }
+        else
+        {
+            Instantiate(wrong);
+            Destroy(instaNumb1);
+            Destroy(instaNumb2);
+            Destroy(wrong);
+            Randombool();
+            SetNumbers();
+        }
     }
+
     private void FillAnswerButtons()
     {
         int answerSlot = Random.Range(1, 4);
-        for (int i = 0; i < answerSlot; i++)
+        solutionButtonNumb = answerSlot;
+        for (int i = 0; i < 4; i++)
         {
             if (i == answerSlot)
             {
@@ -122,8 +135,8 @@ public class SomMinigame : MonoBehaviour
                 }
             }
         }
+        
     }
-
 
     public void BacktoMap()
     {
