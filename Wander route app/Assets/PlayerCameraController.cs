@@ -12,7 +12,7 @@ public class PlayerCameraController : MonoBehaviour
 
     public void ZoomIn()
     {
-        if (currentZoomLevel > 0)
+        if(currentZoomLevel > 0)
         {
             currentZoomLevel--;
             _camera.orthographicSize -= 250;
