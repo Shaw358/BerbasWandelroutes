@@ -400,12 +400,13 @@ namespace Mapbox.Unity.Map
 			//Options.scalingOptions.scalingStrategy.SetUpScaling(this); 
 			try
             {
-			Options.placementOptions.placementStrategy.SetUpPlacement(this);
+				Options.placementOptions.placementStrategy.SetUpPlacement(this);
             }
 			catch
             {
 
             }
+
 			//Scale the map accordingly.
 			if (Math.Abs(differenceInZoom) > Constants.EpsilonFloatingPoint || isAtInitialZoom)
 			{
