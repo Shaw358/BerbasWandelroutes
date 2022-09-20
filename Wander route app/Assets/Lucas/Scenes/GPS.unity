@@ -2853,7 +2853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513323471}
   m_LocalRotation: {x: 0.51690686, y: -0, z: -0, w: 0.85604167}
-  m_LocalPosition: {x: 174, y: 1807, z: -1736}
+  m_LocalPosition: {x: 174, y: 1807, z: -1168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9317,7 +9317,7 @@ MonoBehaviour:
         isActive: 1
         layerSource:
           Name: Streets
-          Id: https://api.mapbox.com/styles/v1/cmdrgarbage/cl7q3q1uk003115o6whxz1sv1.html?title=view&access_token=pk.eyJ1IjoiY21kcmdhcmJhZ2UiLCJhIjoiY2w3cTMzZWFkMDFqZDN3cGx1MG50NG85NyJ9.fi7v4pUrjOPnugZOgeH--Q&zoomwheel=true&fresh=true#16.25/52.16058/5.962895
+          Id: https://api.mapbox.com/styles/v1/cmdrgarbage/cl8a9whdg00ex14ntajhs6u2g.html?title=view&access_token=pk.eyJ1IjoiY21kcmdhcmJhZ2UiLCJhIjoiY2w3cTMzZWFkMDFqZDN3cGx1MG50NG85NyJ9.fi7v4pUrjOPnugZOgeH--Q&zoomwheel=true&fresh=true#2/20/0
           Modified: 
           UserName: 
       rasterOptions:

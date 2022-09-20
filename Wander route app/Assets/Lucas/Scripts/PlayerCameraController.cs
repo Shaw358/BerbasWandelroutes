@@ -7,7 +7,7 @@ public class PlayerCameraController : MonoBehaviour
 
     private void Start()
     {
-        currentZoomLevel = 0;
+        currentZoomLevel = 5;
     }
 
     public void ZoomIn()
