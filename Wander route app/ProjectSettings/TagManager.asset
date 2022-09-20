@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Apple
+  - calculator
+  - number
+  - number1
+  - number2
+  - type
   layers:
   - Default
   - TransparentFX
