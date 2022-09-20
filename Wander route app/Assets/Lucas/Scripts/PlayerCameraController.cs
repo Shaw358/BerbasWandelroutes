@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCameraController : MonoBehaviour
@@ -33,7 +31,6 @@ public class PlayerCameraController : MonoBehaviour
     Vector3 hit_position = Vector3.zero;
     Vector3 current_position = Vector3.zero;
     Vector3 camera_position = Vector3.zero;
-    float z = 0.0f;
 
     void Update()
     {
